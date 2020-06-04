@@ -1,0 +1,8 @@
+Jinja2==2.11.2
+aiohttp_jinja2
+faker
+aiohttp
+cchardet
+aiodns
+asyncio
+aiohttp_sse 
