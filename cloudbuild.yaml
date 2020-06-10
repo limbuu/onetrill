@@ -6,11 +6,11 @@
 # - 'gcr.io/$PROJECT_ID/onetrill'
 steps:
 - name: gcr.io/kaniko-project/executor:latest
-  args: ['--destination=$_IMAGE_NAME','--cache=true']
+  args: ['--destination=$_IMAGE_NAME:$_IMAGE_VERSION','--cache=true']
 tags: ['_IMAGE_VERSION']
 substitutions:
-  _IMAGE_NAME: "gcr.io/fuse-ai/built-with-kaniko:v1"
-  _IMAGE_VERSION: "v1"
+  _IMAGE_NAME: "gcr.io/fuse-ai/built-with-kaniko"
+  _IMAGE_VERSION: "v2.0.0"
 options:
   substitution_option: 'ALLOW_LOOSE'
 logsBucket: 'gs://codehub-cloudbuild-logs'
