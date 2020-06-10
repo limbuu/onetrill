@@ -1,7 +1,12 @@
+# steps:
+# - name: 'gcr.io/kaniko-project/executor:latest'
+#   args: ['--destination=gcr.io/$PROJECT_ID/onetrill', '--cache=true']
+# tags: ['cloud-builders-community']
+# images:
+# - 'gcr.io/$PROJECT_ID/onetrill'
 steps:
-- name: 'gcr.io/kaniko-project/executor:latest'
-  args: ['--destination=gcr.io/$PROJECT_ID/onetrill', '--cache=true']
+- name: gcr.io/kaniko-project/executor:latest
+  args: ['--destination=gcr.io/$PROJECT_ID/built-with-kaniko',
+         '--cache=true']
 tags: ['cloud-builders-community']
-images:
-- 'gcr.io/$PROJECT_ID/onetrill'
 logsBucket: 'gs://codehub-cloudbuild-logs'
