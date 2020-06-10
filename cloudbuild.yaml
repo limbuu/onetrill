@@ -2,5 +2,5 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/fuse-ai/onetrill', '.']
 - name: gcr.io/cloud-builders/git
-  args: ['fetch', '--unshallow']
+  args: ['fetch', 'https://github.com/limbuu/onetrill.git']
 logsBucket: 'gs://codehub-cloudbuild-logs'
