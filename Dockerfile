@@ -1,4 +1,9 @@
-FROM ubuntu:16.10
-RUN apt-get update && apt-get install python3.6
+FROM ubuntu:18.04
+RUN apt-get update 
+RUN apt-get install python3 -y
+RUN apt-get install software-properties-common -y && apt-add-repository universe -y
+RUN apt-get update
+RUN apt-get install python3-pip -y
 ADD . .
-RUN python main.py
+RUN pip3 install -r requirements.txt
+CMD ["python3","main.py"]
