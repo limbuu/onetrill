@@ -6,9 +6,9 @@
 # - 'gcr.io/$PROJECT_ID/onetrill'
 steps:
 - name: gcr.io/kaniko-project/executor:latest
-  args: ['--destination=$_IMAGE_NAME:$_IMAGE_VERSION','--cache=true']
+  args: ['--destination=$_IMAGE_NAME','--cache=true']
 substitutions:
-  _IMAGE_NAME: "gcr.io/$PROJECT_ID/built-with-kaniko"
+  _IMAGE_NAME: "gcr.io/fuse-ai/built-with-kaniko"
   _IMAGE_VERSION: "v1"
 options:
   substitution_option: 'ALLOW_LOOSE'
