@@ -116,6 +116,7 @@ if __name__ == '__main__':
     app.router.add_route('GET', '/chat', chat)
     app.router.add_route('POST', '/everyone', message)
     app.router.add_route('GET', '/subscribe', subscribe)
+    print("Hello world")
     web.run_app(app, host='127.0.0.1', port=9000)
 
 
