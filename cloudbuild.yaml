@@ -1,14 +1,6 @@
-# steps:
-# - name: 'gcr.io/kaniko-project/executor:latest'
-#   args: ['--destination=gcr.io/$PROJECT_ID/onetrill', '--cache=true']
-# tags: ['cloud-builders-community']
-# images:
-# - 'gcr.io/$PROJECT_ID/onetrill'
 steps:
 - name: gcr.io/kaniko-project/executor:latest
   args: ['--destination=$_IMAGE_NAME:$_IMAGE_VERSION','--cache=true']
-images:
-- '$_IMAGE_NAME:$_IMAGE_VERSION'
 substitutions:
   _IMAGE_NAME: "gcr.io/fuse-ai/built-with-kaniko"
   _IMAGE_VERSION: "v2.0.0"
