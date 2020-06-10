@@ -1,3 +1,4 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/fuse-ai/myimage', '.']
+  args: ['build', '-t', 'gcr.io/fuse-ai/onetrill-image', '.']
+logsBucket: 'gs://codehub-cloudbuild-logs'
