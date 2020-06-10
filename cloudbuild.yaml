@@ -9,7 +9,7 @@ steps:
   args: ['--destination=$_IMAGE_NAME','--cache=true']
 tags: ['_IMAGE_VERSION']
 substitutions:
-  _IMAGE_NAME: "gcr.io/fuse-ai/built-with-kaniko"
+  _IMAGE_NAME: "gcr.io/fuse-ai/built-with-kaniko:v1"
   _IMAGE_VERSION: "v1"
 options:
   substitution_option: 'ALLOW_LOOSE'
