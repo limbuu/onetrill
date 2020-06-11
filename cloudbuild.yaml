@@ -9,12 +9,12 @@ steps:
   timeout: 500s
   waitFor: ['Build1']
 substitutions:
-  _IMAGE1_NAME: "gcr.io/fuse-ai/built-with-kaniko-image1"
-  _IMAGE2_NAME: "gcr.io/fuse-ai/built-with-kaniko-image2"
-  _PRE_IMAGE1_VERSION: "v2.0.0" ## to keep tack of new and old image
-  _PRE_IMAGE2_VERSION: "v3.0.0" ## to keep tack of new and old image
+  _IMAGE1_NAME: "gcr.io/$_PROJECT_ID/built-with-kaniko-image1"
+  _IMAGE2_NAME: "gcr.io/$_PROJECT_ID/built-with-kaniko-image2"
+  _PRE_IMAGE1_VERSION: "v2.0.0" ## to keep tack of new and old image, use commit_sha for stage and dev
+  _PRE_IMAGE2_VERSION: "v4.0.0" ## to keep tack of new and old image
   _CUR_IMAGE1_VERSION: "v2.0.0"
-  _CUR_IMAGE2_VERSION: "v3.0.0"
+  _CUR_IMAGE2_VERSION: "v4.0.0"
  # _K8S_APP_NAME: "one_trill"
 options:
   substitution_option: 'ALLOW_LOOSE'
