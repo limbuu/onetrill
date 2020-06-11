@@ -24,5 +24,6 @@ substitutions:
 options:
   substitution_option: 'ALLOW_LOOSE'
 timeout: 1000s
+images: ['gcr.io/fuse-ai/built-with-kaniko-image1:v4.0.0']
 tags: [$COMMIT_SHA,$_K8S_APP_NAME,$_K8S_APP_ENVIRONMENT]
 logsBucket: 'gs://codehub-cloudbuild-logs'
