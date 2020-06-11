@@ -5,7 +5,7 @@ steps:
   timeout: 500s
 - name: gcr.io/kaniko-project/executor:latest
   id: 'Build2'
-  args: ['--destination=$_IMAGE2_NAME:$_CUR_IMAGE2_VERSION','--cache=true', '--file=./flask/Dockerfile']
+  args: ['--destination=$_IMAGE2_NAME:$_CUR_IMAGE2_VERSION','--cache=true', '--dockerfile=./flask/Dockerfile']
   timeout: 500s
   waitFor: ['Build1']
 substitutions:
