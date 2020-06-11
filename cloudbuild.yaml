@@ -18,6 +18,6 @@ substitutions:
  # _K8S_APP_NAME: "one_trill"
 options:
   substitution_option: 'ALLOW_LOOSE'
-timeout: 500s
+timeout: 1000s
 #tags: [$_K8S_APP_NAME']
 logsBucket: 'gs://codehub-cloudbuild-logs'
