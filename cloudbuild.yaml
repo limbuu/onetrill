@@ -7,7 +7,7 @@ steps:
   id: 'Build2'
   args: ['--destination=$_IMAGE2_NAME:$COMMIT_SHA','--cache=true', '--dockerfile=./flask/Dockerfile']
   timeout: 500s
-  waitFor: ['Build1']
+  # waitFor: ['Build1']
 substitutions:
   _IMAGE1_NAME: gcr.io/fuse-ai/built-with-kaniko-image1
   _IMAGE2_NAME: gcr.io/fuse-ai/built-with-kaniko-image2
@@ -17,5 +17,5 @@ substitutions:
 options:
   substitution_option: 'ALLOW_LOOSE'
 timeout: 1000s
-tags: [$COMMIT_SHA,$_K8S_APP_NAME,$_K8S_APP_ENVIRONMENT]
+tags: [$COMMIT_SHA,$_K8S_APP_NAME]
 logsBucket: 'gs://codehub-cloudbuild-logs'
