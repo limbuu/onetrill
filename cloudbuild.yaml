@@ -8,6 +8,10 @@ steps:
   args: ['--destination=$_IMAGE2_NAME:$_CUR_IMAGE2_VERSION','--cache=true', '--dockerfile=./flask/Dockerfile']
   timeout: 500s
   waitFor: ['Build1']
+- name: 'gcr.io/cloud-builders/docker'
+  id: 'Push'
+  args: ["push", "$_IMAGE1_NAME:$_CUR_IMAGE1_VERSION"]
+  waitFor: ['Build1','Build2']
 substitutions:
   _IMAGE1_NAME: "gcr.io/fuse-ai/built-with-kaniko-image1"
   _IMAGE2_NAME: "gcr.io/fuse-ai/built-with-kaniko-image2"
