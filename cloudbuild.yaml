@@ -9,9 +9,8 @@ steps:
   timeout: 500s
   waitFor: ['Build1']
 substitutions:
-  _PROJECT_ID_ID: fuse-ai
-  _IMAGE1_NAME: gcr.io/[$_PROJECT_ID_ID]/built-with-kaniko-image1
-  _IMAGE2_NAME: gcr.io/[$_PROJECT_ID_ID]/built-with-kaniko-image2
+  _IMAGE1_NAME: gcr.io/fuse-ai/built-with-kaniko-image1
+  _IMAGE2_NAME: gcr.io/fuse-ai/built-with-kaniko-image2
   _PRE_IMAGE1_VERSION: v4.0.0 ## to keep tack of new and old image, use commit_sha for stage and dev
   _PRE_IMAGE2_VERSION: v5.0.0 ## to keep tack of new and old image
   _CUR_IMAGE1_VERSION: v7.0.0
