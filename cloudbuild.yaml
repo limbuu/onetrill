@@ -20,5 +20,4 @@ options:
   substitution_option: 'ALLOW_LOOSE'
 timeout: 500s
 #tags: [$_K8S_APP_NAME']
-images: [$_IMAGE1_NAME:$_CUR_IMAGE1_VERSION,$_IMAGE2_NAME:$_CUR_IMAGE2_VERSION]
 logsBucket: 'gs://codehub-cloudbuild-logs'
