@@ -11,10 +11,10 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   id: 'Build1'
   args: ["build", "-t", "$_IMAGE1_NAME:$_CUR_IMAGE1_VERSION", ".", "--cache-from", "$_IMAGE1_NAME:$_PRE_IMAGE1_VERSION"]
-- name: 'gcr.io/cloud-builders/docker'
-  id: 'Push'
-  args: ["push", "$_IMAGE1_NAME:$_CUR_IMAGE1_VERSION"]
-  waitFor: ['Build1']
+# - name: 'gcr.io/cloud-builders/docker'
+#   id: 'Push'
+#   args: ["push", "$_IMAGE1_NAME:$_CUR_IMAGE1_VERSION"]
+#   waitFor: ['Build1']
 substitutions:
   _IMAGE1_NAME: "gcr.io/fuse-ai/built-with-kaniko-image1"
   # _IMAGE2_NAME: "gcr.io/fuse-ai/built-with-kaniko-image2"
