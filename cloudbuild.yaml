@@ -1,22 +1,19 @@
 steps:
 - name: gcr.io/kaniko-project/executor:latest
   id: 'Build1'
-  args: ['--destination=$_IMAGE1_NAME:$_CUR_IMAGE1_VERSION','--cache=true']
+  args: ['--destination=$_IMAGE1_NAME:$_COMMIT_SHA','--cache=true']
   timeout: 500s
 - name: gcr.io/kaniko-project/executor:latest
   id: 'Build2'
-  args: ['--destination=$_IMAGE2_NAME:$_CUR_IMAGE2_VERSION','--cache=true', '--dockerfile=./flask/Dockerfile']
+  args: ['--destination=$_IMAGE2_NAME:$_COMMIT_SHA','--cache=true', '--dockerfile=./flask/Dockerfile']
   timeout: 500s
   waitFor: ['Build1']
 substitutions:
   _IMAGE1_NAME: gcr.io/fuse-ai/built-with-kaniko-image1
   _IMAGE2_NAME: gcr.io/fuse-ai/built-with-kaniko-image2
-  _PRE_IMAGE1_VERSION: v4.0.0 ## to keep tack of new and old image, use commit_sha for stage and dev
-  _PRE_IMAGE2_VERSION: v5.0.0 ## to keep tack of new and old image
-  _CUR_IMAGE1_VERSION: v7.0.0
-  _CUR_IMAGE2_VERSION: v8.0.0
+  # _IMAGE1_VERSION: v7.0.0 #Change these for prod 
+  # _IMAGE2_VERSION: v8.0.0
   _K8S_APP_NAME: one-trill
-  _K8S_APP_ENVIRONMENT: production
 options:
   substitution_option: 'ALLOW_LOOSE'
 timeout: 1000s
