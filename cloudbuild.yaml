@@ -3,6 +3,13 @@ steps:
   id: 'Build1'
   args: ['--destination=$_IMAGE1_NAME:$_CUR_IMAGE1_VERSION','--cache=true']
   timeout: 500s
+  ## tag and push sha
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['tag', 'gcr.io/$PROJECT_ID/docker:19.03.8', 'gcr.io/$PROJECT_ID/docker']
+  wait_for: ['19.03.8']
+  id: 'latest'
+
+
 - name: gcr.io/kaniko-project/executor:latest
   id: 'Build2'
   args: ['--destination=$_IMAGE2_NAME:$_CUR_IMAGE2_VERSION','--cache=true', '--dockerfile=./flask/Dockerfile']
@@ -15,9 +22,9 @@ substitutions:
   _PRE_IMAGE2_VERSION: "v4.0.0" ## to keep tack of new and old image
   _CUR_IMAGE1_VERSION: "v3.0.0"
   _CUR_IMAGE2_VERSION: "v4.0.0"
- # _K8S_APP_NAME: "one_trill"
+  _IMAGE_TAG: "latest"
 options:
   substitution_option: 'ALLOW_LOOSE'
 timeout: 1000s
-#tags: [$_K8S_APP_NAME']
+tags: [$COMMIT_SHA,$_IMAGE_TAG]
 logsBucket: 'gs://codehub-cloudbuild-logs'
