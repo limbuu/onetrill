@@ -2,11 +2,11 @@ steps:
 - name: gcr.io/kaniko-project/executor:latest
   id: 'Build1'
   args: ['--destination=$_IMAGE1_NAME:$_CUR_IMAGE1_VERSION','--cache=true']
-  timeout: 60s
+  timeout: 500s
 - name: gcr.io/kaniko-project/executor:latest
   id: 'Build2'
   args: ['--destination=$_IMAGE2_NAME:$_CUR_IMAGE2_VERSION','--cache=true', '--file=./flask/Dockerfile']
-  timeout: 60s
+  timeout: 500s
   waitFor: ['Build1']
 substitutions:
   _IMAGE1_NAME: "gcr.io/fuse-ai/built-with-kaniko-image1"
