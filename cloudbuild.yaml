@@ -13,8 +13,8 @@ substitutions:
   _IMAGE2_NAME: "gcr.io/fuse-ai/built-with-kaniko-image2"
   _PRE_IMAGE1_VERSION: "v4.0.0" ## to keep tack of new and old image, use commit_sha for stage and dev
   _PRE_IMAGE2_VERSION: "v5.0.0" ## to keep tack of new and old image
-  _CUR_IMAGE1_VERSION: "v5.0.0"
-  _CUR_IMAGE2_VERSION: "v6.0.0"
+  _CUR_IMAGE1_VERSION: "v7.0.0"
+  _CUR_IMAGE2_VERSION: "v8.0.0"
   _K8S_APP_NAME: "one-trill"
   _K8S_APP_ENVIRONMENT: "production"
 options:
