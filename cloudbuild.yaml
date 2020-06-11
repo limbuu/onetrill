@@ -11,8 +11,8 @@ steps:
 substitutions:
   _IMAGE1_NAME: gcr.io/fuse-ai/built-with-kaniko-image1
   _IMAGE2_NAME: gcr.io/fuse-ai/built-with-kaniko-image2
-  # _IMAGE1_VERSION: v7.0.0 #Change these for prod 
-  # _IMAGE2_VERSION: v8.0.0
+  _IMAGE1_VERSION: v7.0.0 #Change these for prod 
+  _IMAGE2_VERSION: v8.0.0
   _K8S_APP_NAME: one-trill
 options:
   substitution_option: 'ALLOW_LOOSE'
