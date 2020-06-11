@@ -1,7 +1,7 @@
 steps:
 - name: gcr.io/kaniko-project/executor:latest
   id: 'Build1'
-  args: ['--destination=$_IMAGE1_NAME:$_COMMIT_SHA','--cache=true']
+  args: ['--destination=$_IMAGE1_NAME:${GIT_SHA:0:7}','--cache=true']
   timeout: 500s
 - name: gcr.io/kaniko-project/executor:latest
   id: 'Build2'
