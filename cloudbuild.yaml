@@ -15,7 +15,7 @@ substitutions:
   _PRE_IMAGE2_VERSION: "v4.0.0" ## to keep tack of new and old image
   _CUR_IMAGE1_VERSION: "v4.0.0"
   _CUR_IMAGE2_VERSION: "v5.0.0"
-  _K8S_APP_NAME: "one trill"
+  _K8S_APP_NAME: "one-trill"
   _K8S_APP_ENVIRONMENT: "production"
 options:
   substitution_option: 'ALLOW_LOOSE'
