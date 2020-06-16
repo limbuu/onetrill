@@ -6,4 +6,5 @@ RUN apt-get update
 RUN apt-get install python3-pip -y
 ADD . .
 RUN pip3 install -r requirements.txt
+RUN echo "Heakcksalcmlsclsc"
 CMD ["python3","main.py"]
