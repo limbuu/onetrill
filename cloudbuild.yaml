@@ -9,11 +9,14 @@ steps:
   timeout: 500s
   waitFor: ['Build1']
 - name: "gcr.io/cloud-builders/gke-deploy"
+  id: 'Deploy'
   args:
   - run
-  - --filename=deployment.yaml
-  - --location=us-central1-c
-  - --cluster=cloudbuild-test-cluster
+  - --filename=$_K8S_YAML_PATH
+  - --image=$_IMAGE1_NAME:$COMMIT_SHA
+  - --location=$_K8S_LOCATION
+  - --cluster=$_K8S_CLUSTER
+  timeout: 500s
 substitutions:
   _IMAGE1_NAME: gcr.io/fuse-ai/built-with-kaniko-image1
   _IMAGE2_NAME: gcr.io/fuse-ai/built-with-kaniko-image2
@@ -22,6 +25,8 @@ substitutions:
   _K8S_APP_NAME: one-trill
   _K8S_NAMESPACE: default
   _K8S_YAML_PATH: deployment.yaml
+  _K8S_LOCATION: us-central1-c
+  _K8S_CLUSTER: cloudbuild-test-cluster
 options:
   substitution_option: 'ALLOW_LOOSE'
 timeout: 1000s
