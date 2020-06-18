@@ -5,7 +5,7 @@ steps:
   timeout: 500s
 - name: gcr.io/kaniko-project/executor:latest
   id: 'Build2'
-  args: ['--destination=$_IMAGE2_NAME:$COMMIT_SHA','--cache=true', '--dockerfile=./flask/Dockerfile']
+  args: ['--destination=$_IMAGE2_NAME:$COMMIT_SHA','--destination=$_IMAGE1_NAME:latest','--cache=true', '--dockerfile=$_IMAGE2_DOCKERFILE_PATH']
   timeout: 500s
   waitFor: ['Build1']
 - name: "gcr.io/cloud-builders/gke-deploy"
@@ -19,8 +19,8 @@ steps:
 substitutions:
   _IMAGE1_NAME: gcr.io/fuse-ai/built-with-kaniko-image1
   _IMAGE2_NAME: gcr.io/fuse-ai/built-with-kaniko-image2
-  _IMAGE1_VERSION: v7.0.0 #Change these for prod 
-  _IMAGE2_VERSION: v8.0.0
+  _IMAGE1_DOCKERFILE_PATH: Dockerfile
+  _IMAGE2_DOCKERFILE_PATH: ./flask/Dockerfile
   _K8S_APP_NAME: one-trill
   _K8S_NAMESPACE: default
   _K8S_YAML_PATH: deployment.yaml
