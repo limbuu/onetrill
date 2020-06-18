@@ -13,6 +13,7 @@ steps:
   args:
   - run
   - --filename=$_K8S_YAML_PATH
+  - --image=$_IMAGE1_NAME:$COMMIT_SHA
   - --location=$_K8S_LOCATION
   - --cluster=$_K8S_CLUSTER
   timeout: 500s
