@@ -13,10 +13,9 @@ steps:
   args:
   - run
   - --filename=$_K8S_YAML_PATH
-  - --image=$_IMAGE1_NAME:$COMMIT_SHA
   - --location=$_K8S_LOCATION
   - --cluster=$_K8S_CLUSTER
-  timeout: 500s
+  timeout: 60s
 substitutions:
   _IMAGE1_NAME: gcr.io/fuse-ai/built-with-kaniko-image1
   _IMAGE2_NAME: gcr.io/fuse-ai/built-with-kaniko-image2
