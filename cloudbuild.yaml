@@ -15,7 +15,7 @@ steps:
   - --filename=$_K8S_YAML_PATH
   - --location=$_K8S_LOCATION
   - --cluster=$_K8S_CLUSTER
-  timeout: 60s
+  timeout: 500s
 substitutions:
   _IMAGE1_NAME: gcr.io/fuse-ai/built-with-kaniko-image1
   _IMAGE2_NAME: gcr.io/fuse-ai/built-with-kaniko-image2

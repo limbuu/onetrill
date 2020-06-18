@@ -15,7 +15,7 @@ spec:
         run: test-app
     spec:
       containers:
-      - image: gcr.io/fuse-ai/test-image
+      - image: gcr.io/fuse-ai/test-image:latest
         name: test-app-image
         imagePullPolicy: IfNotPresent
 ---
